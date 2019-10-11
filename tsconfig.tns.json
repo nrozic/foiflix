@@ -1,11 +1,11 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "module": "esNext",
+        "module": "es2015",
         "moduleResolution": "node",
         "paths": {
             "@src/*": ["src/*.tns.ts", "src/*.ts"]
         }
     },
-    "files": ["src/main.tns.ts"]
+    "files": ["src/main.tns.ts", "src/app/search/search.module.ts"]
 }
