@@ -1,0 +1,14 @@
+{
+    "extends": ["stylelint-config-rational-order"],
+    "rules": {
+        "order/properties-order": [],
+        "plugin/rational-order": [
+            true,
+            {
+                "border-in-box-model": false,
+                "empty-line-between-groups": true
+            }
+        ],
+        "indentation": [2, { "baseIndentLevel": 0 }]
+    }
+}
