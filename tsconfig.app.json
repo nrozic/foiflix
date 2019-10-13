@@ -3,10 +3,10 @@
     "compilerOptions": {
         "outDir": "./out-tsc/app",
         "module": "es2015",
-        "types": [],
+        "types": ["node"],
         "paths": {
             "@src/*": ["src/*.web", "src/*"]
         }
     },
-    "files": ["src/main.ts", "src/polyfills.ts", "src/app/search/search.module.ts"]
+    "files": ["src/main.ts", "src/polyfills.ts", "src/app/search/search.module.ts", "src/app/shared/shared.module.ts"]
 }

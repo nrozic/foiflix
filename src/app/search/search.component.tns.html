@@ -1,1 +1,7 @@
-<button text="search works!" class="btn btn-primary"></button>
+<ActionBar [title]="title" class="action-bar">
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <label text="{{ title }}" class="action-label"></label>
+        <image src="~/assets/images/logo.png" height="55" width="48" stretch="aspectFit" class="action-image"></image>
+    </StackLayout>
+</ActionBar>
+<button text="search works! {{ txt }}" class="btn btn-primary"></button>

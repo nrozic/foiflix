@@ -4,16 +4,17 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module'
 import { AppComponent } from '@src/app/app.component'
 import { AppRoutingModule } from '@src/app/app.routing.module.tns'
 import { HomeComponent } from '@src/app/home/home.component'
+import { SharedModule } from '@src/app/shared/shared.module.tns'
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client'
 
 @NgModule({
     declarations: [AppComponent, HomeComponent],
-    imports: [NativeScriptModule, AppRoutingModule],
+    imports: [NativeScriptModule, AppRoutingModule, NativeScriptHttpClientModule, SharedModule.forRoot()],
     providers: [],
     bootstrap: [AppComponent],
     schemas: [NO_ERRORS_SCHEMA],

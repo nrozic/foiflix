@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { TmdbService } from '../core'
 
 @Component({
     selector: 'app-search',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core'
     moduleId: module.id,
 })
 export class SearchComponent implements OnInit {
-    constructor() {}
+    title: string
+    txt: string
+    constructor(private _tmdbService: TmdbService) {}
 
     ngOnInit() {
-        alert('search')
+        this.title = 'FOIflixić'
+        this.txt = this._tmdbService.getMovie(100)
+    }
+
+    async search() {
+        this._tmdbService.search<any>('avatar').subscribe(rsp => {
+            console.error(rsp)
+        })
     }
 }

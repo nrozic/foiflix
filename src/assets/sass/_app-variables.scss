@@ -1,0 +1,16 @@
+
+// Import the theme’s variables. If you’re using a color scheme
+// other than “light”, switch the path to the alternative scheme,
+// for example '~nativescript-theme-core/scss/dark'.
+@import '~nativescript-theme-core/scss/light';
+
+// Place any custom variables here. For example:
+$main-bg: #13141d;
+$text-color-primary: #ffffff;
+$text-color-secondary: #343750;
+$text-color-accent: #38a948;
+$count-bg: $text-color-accent;
+
+// breakpoints
+$tablet-width: 768px;
+$desktop-width: 1024px;
