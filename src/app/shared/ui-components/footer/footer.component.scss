@@ -1,0 +1,16 @@
+@import 'app-variables';
+@import 'mixins';
+
+.footer {
+  height: $footer-height;
+
+  font-size: 13px;
+  font-family: 'Rubik';
+  letter-spacing: 6px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__perpetuum {
+    margin: 30px 0;
+  }
+}

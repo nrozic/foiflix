@@ -1,4 +1,10 @@
+@import 'app-variables';
+@import 'mixins';
+
 .foiflix {
+  min-height: calc(100% - #{$footer-height});
+  // margin: 0 auto -#{$footer-height};
+
   &__bg {
     position: fixed;
     z-index: -1;
@@ -8,19 +14,11 @@
     min-height: 600px;
 
     object-fit: cover;
-    object-position: 0 0;
+    object-position: 50% 0;
 
     background-attachment: fixed;
     background-blend-mode: color;
 
     opacity: .2;
-  }
-
-  &__main {
-    display: block;
-    min-height: 100%;
-    margin: 0 auto -50px;
-
-    border: 1px solid green;
   }
 }

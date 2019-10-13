@@ -1,0 +1,61 @@
+@import 'app-variables';
+@import 'mixins';
+
+.searchform {
+  &__title {
+    margin-bottom: 10px;
+
+    font-size: 30px;
+    font-family: 'Rubik';
+
+    @include desktop {
+      margin-bottom: 40px;
+
+      font-size: 70px;
+    }
+  }
+
+  &__input-group {
+    position: relative;
+
+    height: $search-input-height;
+
+    @include desktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__search-icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+
+    transform: translateY(-50%);
+  }
+
+  &__input {
+    width: 100%;
+    max-width: 340px;
+    height: $search-input-height;
+
+    padding-left: 60px;
+
+    color: $text-color-primary;
+    font-weight: 300;
+    font-size: 19px;
+    font-family: 'Rubik';
+
+    background: $search-input-color;
+    border: none;
+    border-radius: 7px;
+
+    @include desktop {
+      max-width: 540px;
+    }
+
+    &::placeholder{
+      color: $text-color-primary;
+      font-weight: 300;
+    }
+  }
+}

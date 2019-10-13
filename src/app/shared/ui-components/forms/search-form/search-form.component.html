@@ -1,1 +1,9 @@
-<p>search-form works!</p>
+<div class="searchform container">
+    <h2 class="searchform__title">Find a movie</h2>
+    <form *ngIf="searchForm" class="kalkulator-form__form" [formGroup]="searchForm" (ngSubmit)="submit()">
+        <div class="searchform__input-group">
+            <img class="searchform__search-icon" src="/assets/images/search.svg" alt="Search icon" />
+            <input class="searchform__input" type="text" formControlName="keyword" placeholder="Search by title or keyword" />
+        </div>
+    </form>
+</div>
