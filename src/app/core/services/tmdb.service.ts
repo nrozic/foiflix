@@ -27,6 +27,14 @@ export class TmdbService {
         )
     }
 
+    getSimilarMovies<T>(id: string | number) {
+        return this._http.get<T>(this._buildUrl(`${API_ROUTES.movie}/${id}/similar`)).pipe(
+            map((rsp: T) => {
+                return rsp
+            })
+        )
+    }
+
     private _buildUrl(path: string, queryParams?: string): string {
         const params = queryParams ? queryParams : ''
         return `${environment.apiBaseUrl}/${path}?api_key=${environment.apiKey}${params}`

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router'
     moduleId: module.id,
 })
 export class MovieComponent implements OnInit {
-    movie
+    movie: IMovie
 
     constructor(private _tmdbService: TmdbService, private _activatedRoute: ActivatedRoute) {}
 
