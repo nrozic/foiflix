@@ -1,0 +1,51 @@
+@import 'app-variables';
+@import 'mixins';
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  color: $text-color-accent;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+body {
+  color: $text-color-primary;
+
+  background: $main-bg;
+}
+
+.container {
+  width: 100%;
+
+  @include desktop {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  padding: 18px;
+
+  &--no-margin-right {
+    @include desktop {
+      max-width: 90%;
+      margin: 0;
+      margin-left: calc(10% + 18px);
+      padding: 0;
+    }
+  }
+
+  &--no-padding {
+    padding: 0;
+  }
+
+  &--double-padding {
+    padding: 36px;
+  }
+}

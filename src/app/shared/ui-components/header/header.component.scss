@@ -1,0 +1,42 @@
+@import 'mixins';
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  @include desktop {
+    padding-top: 25px;
+  }
+
+  &__logo {
+    display: none;
+
+    &--full {
+      @include desktop {
+        display: inline-block;
+      }
+    }
+
+    &--mobile {
+      display: inline-block;
+
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    float: right;
+    max-width: 200px;
+
+    padding-top: 7px;
+
+    @include desktop {
+      padding-top: 0px;
+    }
+  }
+}

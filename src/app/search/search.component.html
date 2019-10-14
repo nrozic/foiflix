@@ -1,0 +1,11 @@
+<div class="search">
+    <app-search-form (formSubmit)="search($event)"></app-search-form>
+
+    <div *ngIf="shouldDisplayMovies" class="list container container--no-margin-right">
+        <div *ngFor="let movie of movies" class="list__movie">
+            <a (click)="openMovieDetails($event, movie)">
+                <img class="list__poster" [src]="movie.posterPath" [alt]="movie.title" />
+            </a>
+        </div>
+    </div>
+</div>

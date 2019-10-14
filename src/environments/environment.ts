@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+    production: false,
+    apiBaseUrl: ' https://api.themoviedb.org/3',
+    apiKey: 'e47ef8cc88540e040623c8eafab1bb63',
+    backdropBaseUrl: 'https://image.tmdb.org/t/p/original',
+}
 
 /*
  * In development mode, to ignore zone related error stack frames such as
