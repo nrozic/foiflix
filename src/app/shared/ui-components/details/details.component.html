@@ -1,0 +1,36 @@
+<div class="details container">
+    <div class="details__content">
+        <div class="poster">
+            <img class="poster__img" [src]="movie.posterPath" [alt]="movie.title" />
+        </div>
+
+        <div class="info">
+            <h1 class="info__title">{{ movie.title }}</h1>
+
+            <div class="info__summary">
+                {{ movie.overview }}
+            </div>
+
+            <div class="info__meta">
+                <span class="info__meta">
+                    <span class="info__label">IMDB Rating: </span>
+                    {{ movie.voteAverage }}
+                </span>
+
+                <span class="info__meta">
+                    <span class="info__label">Genre: </span>
+                    <span *ngFor="let genre of movie.genres; let index = index">
+                        {{ genre['name'] }}<ng-container *ngIf="shouldDisplayComma(index)">,</ng-container>&nbsp;
+                    </span>
+                </span>
+
+                <span class="info__meta">
+                    <span class="info__label">Runtime: </span>
+                    {{ movie.runtime }}
+                </span>
+            </div>
+
+            <app-cta-button text="Play trailer" clickAction="play" [movieId]="movie.id"></app-cta-button>
+        </div>
+    </div>
+</div>

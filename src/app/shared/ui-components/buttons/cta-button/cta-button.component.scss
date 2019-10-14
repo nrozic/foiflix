@@ -1,0 +1,64 @@
+@import 'app-variables';
+@import 'mixins';
+
+.cta {
+  position: relative;
+
+  &__btn {
+    width: 180px;
+    height: 50px;
+    margin: 65px auto;
+
+    color: $text-color-primary;
+    font-weight: bold;
+    font-size: 17px;
+    font-family: 'Muli';
+
+    background: $text-color-accent;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+
+    @include desktop {
+      width: 215px;
+      height: 60px;
+    }
+
+    &--play {
+
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 140px;
+
+    width: 65px;
+    height: 65px;
+
+    background: $text-color-primary;
+    background-clip: padding-box;
+    border: 8px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.1);
+
+    transform: translateY(-50%);
+
+    @include desktop {
+      left: 173px;
+
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+}

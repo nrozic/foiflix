@@ -1,0 +1,32 @@
+@import 'app-variables';
+@import 'mixins';
+
+.backdrop {
+  &__img {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+
+    @include mobile-only {
+      max-height: 250px;
+    }
+
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+
+    object-fit: cover;
+    object-position: 50% 0;
+
+    background-attachment: fixed;
+    background-blend-mode: color-burn;
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 95%);
+
+    opacity: .6;
+
+    @include desktop {
+      max-height: 900px;
+    }
+  }
+}

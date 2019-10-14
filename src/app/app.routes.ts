@@ -14,6 +14,10 @@ export const routes: Routes = [
     },
     {
         path: 'search',
-        loadChildren: './search/search.module#SearchModule',
+        loadChildren: () => import(`@src/app/search/search.module`).then(m => m.SearchModule),
+    },
+    {
+        path: 'movie/:id',
+        loadChildren: () => import(`@src/app/movie/movie.module`).then(m => m.MovieModule),
     },
 ]

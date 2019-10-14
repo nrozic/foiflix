@@ -1,0 +1,6 @@
+<div *ngIf="movie" class="movie">
+    <app-backdrop *ngIf="movie.backdropPath" [backdropPath]="movie.backdropPath" [movieTitle]="movie.backdropPath"></app-backdrop>
+
+    <app-details *ngIf="movie" [movie]="movie"></app-details>
+    <app-related></app-related>
+</div>

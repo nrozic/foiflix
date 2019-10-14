@@ -1,5 +1,5 @@
 <div class="foiflix">
-    <img src="./assets/images/background-image.jpg" alt="Background image" class="foiflix__bg" />
+    <img *ngIf="shouldDisplayBgImage" src="./assets/images/background-image.jpg" alt="Background image" class="foiflix__bg" />
     <app-header></app-header>
 
     <div class="foiflix__content">

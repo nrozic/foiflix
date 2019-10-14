@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core'
 import { TmdbService } from '../core'
-import { FormGroup } from '@angular/forms'
 import { Subscription } from 'rxjs'
 import { IMovieResponse, IMovie } from '../shared/models/Movie.model'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-search',
@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     response: IMovieResponse
     private _subscriptions = new Subscription()
 
-    constructor(private _tmdbService: TmdbService) {}
+    constructor(private _tmdbService: TmdbService, private _router: Router) {}
 
     get shouldDisplayMovies(): boolean {
         return this.movies && this.movies.length > 0 ? true : false
@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.title = 'FOIflix'
-        this.txt = this._tmdbService.getMovie(100)
+        this.txt = 'proba'
     }
 
     ngOnDestroy() {
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
     openMovieDetails(event: MouseEvent, item: IMovie) {
-        console.log(item, event)
+        this._router.navigate(['movie', item.id])
     }
 
     async search(keyword: string) {
