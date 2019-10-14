@@ -15,6 +15,7 @@ import { DetailsComponent } from '@src/app/shared/ui-components/details/details.
 import { CtaButtonComponent } from '@src/app/shared/ui-components/buttons/cta-button/cta-button.component'
 import { RelatedComponent } from '@src/app/shared/ui-components/related/related.component'
 import { BackdropComponent } from '@src/app/shared/ui-components/backdrop/backdrop.component'
+import { PosterListComponent } from '@src/app/shared/ui-components/poster-list/poster-list.component'
 
 @NgModule({
     declarations: [
@@ -26,9 +27,11 @@ import { BackdropComponent } from '@src/app/shared/ui-components/backdrop/backdr
         CtaButtonComponent,
         RelatedComponent,
         BackdropComponent,
+        PosterListComponent,
     ],
     imports: [NativeScriptCommonModule, NativeScriptFormsModule, NativeScriptHttpClientModule],
     exports: [
+        RouterModule,
         SearchFormComponent,
         HeaderComponent,
         UserWidgetComponent,
@@ -37,7 +40,7 @@ import { BackdropComponent } from '@src/app/shared/ui-components/backdrop/backdr
         CtaButtonComponent,
         RelatedComponent,
         BackdropComponent,
-        RouterModule,
+        PosterListComponent,
     ],
     schemas: [NO_ERRORS_SCHEMA],
 })

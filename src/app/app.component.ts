@@ -9,19 +9,21 @@ import { filter, map, mergeMap } from 'rxjs/operators'
 })
 export class AppComponent implements OnInit {
     path: string
-    constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {}
-
-    get shouldDisplayBgImage(): boolean {
-        return this.path === '/search' ? true : false
-    }
-    ngOnInit() {
+    constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
         this._routeObserver()
     }
+
+    get shouldDisplayBgImage(): boolean {
+        return this.path === '/search' || this.path === '/' ? true : false
+    }
+
+    ngOnInit() {}
 
     private _routeObserver() {
         this._router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.path = event.url
+                console.log('plaaaa', this.path)
             }
         })
     }

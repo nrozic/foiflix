@@ -19,10 +19,6 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     constructor(private _tmdbService: TmdbService, private _router: Router) {}
 
-    get shouldDisplayMovies(): boolean {
-        return this.movies && this.movies.length > 0 ? true : false
-    }
-
     ngOnInit() {
         this.title = 'FOIflix'
         this.txt = 'proba'
@@ -32,7 +28,7 @@ export class SearchComponent implements OnInit, OnDestroy {
         this._subscriptions.unsubscribe()
     }
 
-    openMovieDetails(event: MouseEvent, item: IMovie) {
+    openMovieDetails(item: IMovie) {
         this._router.navigate(['movie', item.id])
     }
 
