@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     @HostListener('document:keydown', ['$event'])
     onkeydown(ev: KeyboardEvent) {
         if (ev.key === '1' || ev.key === '2' || ev.key === '3' || ev.key === '4' || ev.key === '5') {
-            const movie = this.movies[parseInt(ev.key, 10)]
+            const movie = this.movies[parseInt(ev.key, 10) - 1]
             this.openMovieDetails(movie)
         }
     }

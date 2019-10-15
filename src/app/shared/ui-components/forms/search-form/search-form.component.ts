@@ -17,16 +17,12 @@ export class SearchFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @HostListener('document:keydown', ['$event'])
     onkeydown(ev: KeyboardEvent) {
-        console.log('keydown', ev)
-        this.submit()
+        // console.log('keydown', ev)
+        // this.submit()
 
         if (ev.key === 'ColorF1Green') {
             this.searchInput.nativeElement.focus()
         }
-
-        // if (ev.key === 'ColorF3Blue') {
-        //     this.searchInput.nativeElement.focus()
-        // }
 
         if (ev.key === 'ColorF0Red') {
             this.searchInput.nativeElement.blur()
