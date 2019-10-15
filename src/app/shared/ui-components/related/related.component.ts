@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, HostListener } from '@angular/core'
 import { TmdbService } from '@src/app/core/index'
 import { IMovieResponse, IMovie } from '../../models/Movie.model'
 import { Subscription } from 'rxjs'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-related',
@@ -15,11 +16,23 @@ export class RelatedComponent implements OnInit {
     response: IMovieResponse
     private _subscriptions = new Subscription()
 
-    constructor(private _tmdbService: TmdbService) {}
+    @HostListener('document:keydown', ['$event'])
+    onkeydown(ev: KeyboardEvent) {
+        if (ev.key === '1' || ev.key === '2' || ev.key === '3' || ev.key === '4' || ev.key === '5') {
+            const movie = this.movies[parseInt(ev.key, 10)]
+            this.openMovieDetails(movie)
+        }
+    }
+
+    constructor(private _tmdbService: TmdbService, private _router: Router) {}
 
     ngOnInit() {
         console.log('related for movie', this.movieId)
         this._fetchRelated()
+    }
+
+    openMovieDetails(item: IMovie) {
+        this._router.navigate(['movie', item.id])
     }
 
     private _fetchRelated(): void {

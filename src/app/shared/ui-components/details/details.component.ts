@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, HostListener } from '@angular/core'
 import { IMovie } from '@src/app/shared/models/Movie.model'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-details',
@@ -9,7 +10,22 @@ import { IMovie } from '@src/app/shared/models/Movie.model'
 export class DetailsComponent implements OnInit {
     @Input() movie: IMovie
 
-    constructor() {}
+    @HostListener('document:keydown', ['$event'])
+    onkeydown(ev: KeyboardEvent) {
+        // const pressed = this.rc.getKey(ev);
+        // if (!this.content.exitPromptActive && this.focus.content !== 'popup') {
+        //     if (typeof this[pressed['name']] === 'function') {
+        //         this[pressed['name']]();
+        //     } else {
+        //         // console.log('You forgot to define function', pressed, this.focus.content);
+        //     }
+        // }
+        console.log(ev)
+    }
+
+    constructor(private _router: Router) {
+        this._router.routeReuseStrategy.shouldReuseRoute = () => false
+    }
 
     ngOnInit() {}
 

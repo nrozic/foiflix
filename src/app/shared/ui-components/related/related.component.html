@@ -2,4 +2,4 @@
     <h3 class="related__title">{{ title }}</h3>
 </div>
 
-<app-poster-list [movies]="movies"></app-poster-list>
+<app-poster-list [movies]="movies" (posterClick)="openMovieDetails($event)"></app-poster-list>

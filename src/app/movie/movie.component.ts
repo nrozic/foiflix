@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, HostListener } from '@angular/core'
+import { Location } from '@angular/common'
+
 import { TmdbService } from '../core'
 import { IMovie } from '../shared/models/Movie.model'
 import { ActivatedRoute } from '@angular/router'
@@ -12,7 +14,14 @@ import { ActivatedRoute } from '@angular/router'
 export class MovieComponent implements OnInit {
     movie: IMovie
 
-    constructor(private _tmdbService: TmdbService, private _activatedRoute: ActivatedRoute) {}
+    @HostListener('document:keydown', ['$event'])
+    onkeydown(ev: KeyboardEvent) {
+        if (ev.key === 'Backspace') {
+            this._location.back()
+        }
+    }
+
+    constructor(private _tmdbService: TmdbService, private _activatedRoute: ActivatedRoute, private _location: Location) {}
 
     ngOnInit() {
         const movieId = this._activatedRoute.snapshot.paramMap.get('id')

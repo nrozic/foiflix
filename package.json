@@ -20,7 +20,8 @@
     "android": "tns run android",
     "ios": "tns run ios",
     "mobile": "tns run",
-    "preview": "tns preview"
+    "preview": "tns preview",
+    "build-tizen": "ng build && rm ~/perpetuum/foiflix/dist/foiflix/index.html && rsync -a ~/perpetuum/foiflix/dist/foiflix/ ~/workspace/foiflix/"
   },
   "husky": {
     "hooks": {
