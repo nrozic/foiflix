@@ -1,0 +1,21 @@
+@import 'app-variables';
+@import 'mixins';
+
+.related {
+  &__title {
+    display: inline-block;
+    margin-bottom: 25px;
+
+    font-size: 22px;
+    font-family: 'Muli';
+
+
+    border-bottom: 5px solid $text-color-accent;
+
+    @include desktop {
+      margin-bottom: 60px;
+
+      font-size: 33px;
+    }
+  }
+}

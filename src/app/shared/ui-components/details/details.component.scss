@@ -1,0 +1,114 @@
+@import 'app-variables';
+@import 'mixins';
+
+.details {
+  &__content {
+    margin-top: 100px;
+
+    font-family: 'Muli';
+    @include desktop {
+      margin-top: 400px;
+    }
+  }
+}
+
+.poster {
+  display: inline-block;
+  overflow: hidden;
+
+  @include mobile-only {
+    width: 115px;
+    max-height: $poster-height-mobile;
+
+    &:nth-child(even) {
+      margin-right: none;
+    }
+  }
+
+  @include tablet {
+    width: 200px;
+  }
+
+  @include desktop {
+    height: $poster-height-desktop;
+  }
+
+  &__img {
+    height: auto;
+
+    @include desktop {
+      height: $poster-height-desktop;
+    }
+
+    object-fit: cover;
+  }
+}
+
+.info {
+  display: inline-block;
+  max-width: 200px;
+
+  margin-left: 20px;
+
+  vertical-align: top;
+
+  @include tablet {
+    max-width: 400px;
+  }
+
+  @include desktop {
+    min-width: 430px;
+
+    margin-left: 50px;
+  }
+
+  @include large-desktop {
+    min-width: 760px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    font-size: 31px;
+    font-family: 'Muli';
+
+    @include desktop {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      font-weight: 800;
+      font-size: 57px;
+    }
+  }
+
+  &__summary {
+    margin-bottom: 16px;
+
+    font-weight: normal;
+    font-size: 15px;
+    font-family: 'Muli';
+
+    @include desktop {
+      margin-bottom: 35px;
+
+      font-weight: 300;
+      font-size: 27px;
+    }
+  }
+
+  &__meta {
+    display: block;
+    margin-bottom: 7px;
+
+    @include desktop {
+      display: inline-block;
+      margin-right: 35px;
+
+      font-size: 17px;
+    }
+  }
+
+  &__label {
+    color: $label-text-color;
+  }
+}

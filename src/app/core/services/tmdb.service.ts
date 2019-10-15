@@ -11,12 +11,24 @@ import { Observable } from 'rxjs'
 export class TmdbService {
     constructor(private _http: HttpClient) {}
 
-    getMovie(id: string | number) {
-        return `Bokić ${id}`
+    getMovie<T>(id: string | number) {
+        return this._http.get<T>(this._buildUrl(`${API_ROUTES.movie}/${id}`)).pipe(
+            map((rsp: T) => {
+                return rsp
+            })
+        )
     }
 
     search<T>(keyword: string): Observable<T> {
         return this._http.get<T>(this._buildUrl(API_ROUTES.searchMovie, `&query=${keyword}`)).pipe(
+            map((rsp: T) => {
+                return rsp
+            })
+        )
+    }
+
+    getSimilarMovies<T>(id: string | number) {
+        return this._http.get<T>(this._buildUrl(`${API_ROUTES.movie}/${id}/similar`)).pipe(
             map((rsp: T) => {
                 return rsp
             })

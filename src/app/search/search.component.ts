@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation, OnDestroy, HostListener } from '@angular/core'
 import { TmdbService } from '../core'
-import { FormGroup } from '@angular/forms'
 import { Subscription } from 'rxjs'
 import { IMovieResponse, IMovie } from '../shared/models/Movie.model'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-search',
@@ -17,23 +17,27 @@ export class SearchComponent implements OnInit, OnDestroy {
     response: IMovieResponse
     private _subscriptions = new Subscription()
 
-    constructor(private _tmdbService: TmdbService) {}
-
-    get shouldDisplayMovies(): boolean {
-        return this.movies && this.movies.length > 0 ? true : false
+    @HostListener('document:keydown', ['$event'])
+    onkeydown(ev: KeyboardEvent) {
+        if (ev.key === '1' || ev.key === '2' || ev.key === '3' || ev.key === '4' || ev.key === '5') {
+            const movie = this.movies[parseInt(ev.key, 10) - 1]
+            this.openMovieDetails(movie)
+        }
     }
+
+    constructor(private _tmdbService: TmdbService, private _router: Router) {}
 
     ngOnInit() {
         this.title = 'FOIflix'
-        this.txt = this._tmdbService.getMovie(100)
+        this.txt = 'proba'
     }
 
     ngOnDestroy() {
         this._subscriptions.unsubscribe()
     }
 
-    openMovieDetails(event: MouseEvent, item: IMovie) {
-        console.log(item, event)
+    openMovieDetails(item: IMovie) {
+        this._router.navigate(['movie', item.id])
     }
 
     async search(keyword: string) {

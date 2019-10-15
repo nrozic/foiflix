@@ -1,7 +1,37 @@
 import { Deserialize } from './Deserialize.model'
 
+export class IBelongsToCollection extends Deserialize {
+    private backdrop_path: string
+    id: number
+    name: string
+    private poster_path: string
+
+    get backdropPath(): string {
+        return `https://image.tmdb.org/t/p/original/${this.backdrop_path}`
+    }
+
+    get posterPath(): string {
+        return `https://image.tmdb.org/t/p/original/${this.poster_path}`
+    }
+
+    constructor(data: any) {
+        super()
+        this._deserialize(data)
+    }
+}
+
+export interface IGenre {
+    id: number
+    name: string
+}
+
 export class IMovie extends Deserialize {
     adult: boolean
+    private belongs_to_collection: IBelongsToCollection
+    budget: number
+    genres: string[]
+    homepage: string
+    private imdb_id: string
     private backdrop_path: string
     private genre_ids: number[]
     id: number
@@ -11,10 +41,22 @@ export class IMovie extends Deserialize {
     popularity: number
     private poster_path: string
     private release_date: string
+    revenue: number
+    runtime: number
+    status: string
+    tagline: string
     title: string
     video: boolean
     private vote_average: number
     private vote_count: number
+
+    get belongsToCollection(): IBelongsToCollection {
+        return new IBelongsToCollection(this.belongs_to_collection)
+    }
+
+    get imdbId() {
+        return this.imdb_id
+    }
 
     get backdropPath(): string {
         return `https://image.tmdb.org/t/p/original/${this.backdrop_path}`

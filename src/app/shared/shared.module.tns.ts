@@ -11,11 +11,37 @@ import { SearchFormComponent } from '@src/app/shared/ui-components/forms/search-
 import { HeaderComponent } from '@src/app/shared/ui-components/header/header.component'
 import { UserWidgetComponent } from '@src/app/shared/ui-components/user-widget/user-widget.component'
 import { FooterComponent } from '@src/app/shared/ui-components/footer/footer.component'
+import { DetailsComponent } from '@src/app/shared/ui-components/details/details.component'
+import { CtaButtonComponent } from '@src/app/shared/ui-components/buttons/cta-button/cta-button.component'
+import { RelatedComponent } from '@src/app/shared/ui-components/related/related.component'
+import { BackdropComponent } from '@src/app/shared/ui-components/backdrop/backdrop.component'
+import { PosterListComponent } from '@src/app/shared/ui-components/poster-list/poster-list.component'
 
 @NgModule({
-    declarations: [SearchFormComponent, HeaderComponent, UserWidgetComponent, FooterComponent],
+    declarations: [
+        SearchFormComponent,
+        HeaderComponent,
+        UserWidgetComponent,
+        FooterComponent,
+        DetailsComponent,
+        CtaButtonComponent,
+        RelatedComponent,
+        BackdropComponent,
+        PosterListComponent,
+    ],
     imports: [NativeScriptCommonModule, NativeScriptFormsModule, NativeScriptHttpClientModule],
-    exports: [SearchFormComponent, HeaderComponent, UserWidgetComponent, FooterComponent],
+    exports: [
+        RouterModule,
+        SearchFormComponent,
+        HeaderComponent,
+        UserWidgetComponent,
+        FooterComponent,
+        DetailsComponent,
+        CtaButtonComponent,
+        RelatedComponent,
+        BackdropComponent,
+        PosterListComponent,
+    ],
     schemas: [NO_ERRORS_SCHEMA],
 })
 export class SharedModule {
